@@ -1,6 +1,6 @@
 #!/usr/bin/env js
-function diffArray(arr1, arr2) {
-  
+function diffArray(arr1, arr2) 
+{  
   if (arr1.length == 0)
   {
     return arr2;
@@ -11,23 +11,24 @@ function diffArray(arr1, arr2) {
   }
   
   var arrConcat = arr1.concat(arr2);
-  var arrDiff = [];
+  var arrDiff = [];  
   
-  var i=0;
-  while(i < arrConcat.length)
+  while(arrConcat.length > 0)
   {
-    var retIndex = arrConcat.indexOf(arrConcat[i],i+1);
-    console.log("\n"+arrConcat[i]+" index"+retIndex);
+    var element = arrConcat.shift();
+    var retIndex = arrConcat.indexOf(element);
+    
     if (retIndex === -1)
     {
-      arrDiff.push(arrConcat[i]);
-      console.log(" Diff "+arrDiff);      
+      arrDiff.push(element);
     }  
     else
     {
-       arrConcat.splice(retIndex,1);
-    }
-    i++;
+       arrConcat = arrConcat.filter( function(val) { return val != element;});  
+    }    
   }  
   return arrDiff;
 }
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+

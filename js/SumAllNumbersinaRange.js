@@ -3,20 +3,13 @@ function sumAll(arr) {
   
   var somme =0;
   
-  var min = arr.reduce(function(a, b) 
-  {
-    console.log("valmin dans fonction "+a+" "+b);
-    return Math.min(a, b);
-  });
+  var max = Math.max(arr[0], arr[1]);
+  var min = Math.min(arr[0], arr[1]);
 
-  var max = arr.reduce(function(a, b) 
+  for(var i = min; i <= max; i++) 
   {
-    return Math.max(a, b);
-  });
-  
-  for(i=min;i<=max;i++){
-    somme+=i;  
-  }
+    somme += i;
+  } 
   return somme;
 }
 
